@@ -1,7 +1,7 @@
 public class Concierto {
     private String escenario;
     private String artista;
-    private int hora;
+    private String hora;
 
 
     /**
@@ -10,7 +10,7 @@ public class Concierto {
      * @param artista Nombre del artista o banda
      * @param hora Hora a la que sería el concierto
      */
-    public Concierto(String escenario, String artista, int hora) {
+    public Concierto(String escenario, String artista, String hora) {
         this.escenario = escenario;
         this.artista = artista;
         this.hora = hora;
@@ -52,7 +52,7 @@ public class Concierto {
      * Obtiene la hora de inicio del concierto
      * @return la hora del inicio del concierto
      */
-    public int getHora() {
+    public String getHora() {
         return hora;
     }
 
@@ -60,7 +60,7 @@ public class Concierto {
      * Establece la hora del concierto
      * @param hora
      */
-    public void setHora(int hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
