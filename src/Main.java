@@ -16,24 +16,20 @@ public class Main {
         conciertos.add(new Concierto("Escenario 2", "LA ÉLITE", "21:30"));
         conciertos.add(new Concierto("Escenario 3", "The Offspring", "23:00"));
 
-        System.out.println("Introduce usuario");
+        System.out.println("Hola!! Introduce tu usuario");
         nombreUsuario= scanner.nextLine();
 
         //comprobar si el usuario está registrado
         if (!usuariosRegistrados.contains(nombreUsuario)){
-            System.out.println("Usuario no registrado. Sigue las instrucciones para darte de alta");
+            System.out.println("El usuario no está registrado.");
             registrarUsuario(scanner);
         }
 
+        boolean continuar = true;
 
-        System.out.println();
 
-        while (true) {
-            //Mostrar las opciones del menú por pantalla
-            System.out.println("Selecciona una de estas opciones: ");
-            System.out.println("1. Lista de conciertos");
-            System.out.println("2. Buscar información del concierto");
-            System.out.println("3. Cerrar");
+        while (continuar) {
+            mostrarMenu();
 
             //variable que almacena la selección del menú
             int opcion = scanner.nextInt();
@@ -48,12 +44,21 @@ public class Main {
                     buscarConcierto(scanner);
                     break;
                 case 3:
-                    System.out.println("Fin");
-                    return;
+                    continuar = false;
+                    break;
                 default:
                     System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
             }
+            //si la opcion seleccionada es la 3, sale directamente
+            if (opcion == 3){
+                continuar = false;
+            }else{
+                //se pregunta al usuario si quiere continuar
+                continuar = continuarMenu(scanner);
+            }
+
         }
+        System.out.println("Fin");
     }
 
     /**
@@ -62,11 +67,31 @@ public class Main {
      */
 
     private static void registrarUsuario(Scanner scanner){
-        System.out.println("Introduce el nombre de usuario que quieras utilizar");
+        System.out.println("Regístrate introduciendo el nombre de usuario que quieras");
         nombreUsuario = scanner.nextLine();
         usuariosRegistrados.add(nombreUsuario);
     }
 
+    /**
+     *
+     */
+    private static void mostrarMenu(){
+        System.out.println("\nSelecciona una opción: ");
+        System.out.println("1. Lista completa de conciertos ");
+        System.out.println("2. Informacion de un concierto ");
+        System.out.println("3. Cerrar programa ");
+    }
+
+    /**
+     *
+     * @param scanner
+     * @return
+     */
+    private static boolean continuarMenu(Scanner scanner){
+        System.out.println("¿Quieres continuar? Marca S/N");
+        String respuesta = scanner.nextLine();
+        return respuesta.equalsIgnoreCase("S");
+    }
 
     /**
      *Muestra la lista de conciertos que se han almacenado en el array
