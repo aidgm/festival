@@ -5,14 +5,28 @@ public class Main {
 
     //Array para almacenar los datos de los conciertos
     private static ArrayList<Concierto> conciertos = new ArrayList<>();
+    //Array para almacenar los nombres de usuarios
+    private static ArrayList<String> usuariosRegistrados = new ArrayList<>();
+    private static String nombreUsuario;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         //Agregar algunos conciertos de ejemplo
-        //Luego completo con más datos
         conciertos.add(new Concierto("Escenario 1", "Zoo", "20:00"));
         conciertos.add(new Concierto("Escenario 2", "LA ÉLITE", "21:30"));
         conciertos.add(new Concierto("Escenario 3", "The Offspring", "23:00"));
+
+        System.out.println("Introduce usuario");
+        nombreUsuario= scanner.nextLine();
+
+        //comprobar si el usuario está registrado
+        if (!usuariosRegistrados.contains(nombreUsuario)){
+            System.out.println("Usuario no registrado. Sigue las instrucciones para darte de alta");
+            registrarUsuario(scanner);
+        }
+
+
+        System.out.println();
 
         while (true) {
             //Mostrar las opciones del menú por pantalla
@@ -41,6 +55,18 @@ public class Main {
             }
         }
     }
+
+    /**
+     * método para registrar a un nuevo usuario
+     * @param scanner
+     */
+
+    private static void registrarUsuario(Scanner scanner){
+        System.out.println("Introduce el nombre de usuario que quieras utilizar");
+        nombreUsuario = scanner.nextLine();
+        usuariosRegistrados.add(nombreUsuario);
+    }
+
 
     /**
      *Muestra la lista de conciertos que se han almacenado en el array
