@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Clase Main, getiona el flujo principal del programa en el que se incluye
+ * la interacción con el usuario, mostrar lista conciertos, buscar
+ * información sobre un concierto y cerrar.
+ */
 public class Main {
 
     //Array para almacenar los datos de los conciertos
@@ -8,6 +13,11 @@ public class Main {
     //Array para almacenar los nombres de usuarios
     private static ArrayList<String> usuariosRegistrados = new ArrayList<>();
     private static String nombreUsuario;
+
+    /**
+     * inicio del programa
+     * @param args arg de la línea de comandos
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -63,7 +73,7 @@ public class Main {
 
     /**
      * método para registrar a un nuevo usuario
-     * @param scanner
+     * @param scanner leer la entrada del usuario
      */
 
     private static void registrarUsuario(Scanner scanner){
@@ -73,7 +83,7 @@ public class Main {
     }
 
     /**
-     *
+     * muestra el menú al usuario
      */
     private static void mostrarMenu(){
         System.out.println("\nSelecciona una opción: ");
@@ -83,8 +93,8 @@ public class Main {
     }
 
     /**
-     *
-     * @param scanner
+     *pregunta al usuario si quiere continuar
+     * @param scanner leer la entrada del usuario
      * @return
      */
     private static boolean continuarMenu(Scanner scanner){

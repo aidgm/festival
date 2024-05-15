@@ -1,3 +1,7 @@
+/**
+ * Clase Concierto, representa un concierto con un escenario,
+ * artista y hora
+ */
 public class Concierto {
     private String escenario;
     private String artista;
@@ -26,7 +30,7 @@ public class Concierto {
 
     /**
      * Establece el nombre del escenario
-     * @param escenario
+     * @param escenario nombre del escenario
      */
     public void setEscenario(String escenario) {
         this.escenario = escenario;
@@ -42,7 +46,7 @@ public class Concierto {
 
     /**
      * Establece el nombre del artista o banda
-     * @param artista
+     * @param artista nombre artista
      */
     public void setArtista(String artista) {
         this.artista = artista;
@@ -58,7 +62,7 @@ public class Concierto {
 
     /**
      * Establece la hora del concierto
-     * @param hora
+     * @param hora hora concierto
      */
     public void setHora(String hora) {
         this.hora = hora;
